@@ -10,18 +10,21 @@ const Hero = () => {
       <div className="max-w-4xl animate-slide-up">
         <p className="section-heading">Hola, soy</p>
         
-        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-4">
+        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-2">
           Yeisson Otalora
         </h1>
         
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-muted-foreground mb-6">
-          Ingeniero de Software | <span className="gradient-text">Full Stack Developer</span>
-        </h2>
+        <p className="text-lg lg:text-xl text-primary font-medium mb-4">
+          Backend-focused Full Stack Developer
+        </p>
+        
+        <p className="text-muted-foreground mb-2 max-w-2xl">
+          Construyendo soluciones reales para negocio
+        </p>
         
         <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-          Ingeniero de software con más de <span className="text-foreground font-medium">6 años de experiencia</span> en desarrollo web, 
-          con enfoque en <span className="text-foreground font-medium">backend</span> y experiencia sólida en frontend. 
-          Especializado en construir soluciones escalables, APIs REST e integraciones con servicios en la nube.
+          +6 años construyendo soluciones web escalables. Especializado en backend con Node.js y arquitecturas modernas. 
+          Experiencia real en producción, integraciones y despliegues.
         </p>
         
         <div className="flex flex-wrap gap-4 mb-12">

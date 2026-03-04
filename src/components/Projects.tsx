@@ -7,21 +7,21 @@ const Projects = () => {
       name: "Movilcell BM",
       url: "https://www.movilcell.shop",
       description:
-        "Plataforma web para gestión comercial y venta de productos. Sistema completo de inventario, ventas y reportes con arquitectura escalable.",
-      techs: ["Full Stack", "Node.js", "React", "PostgreSQL", "AWS"],
+        "Sistema completo de inventario, ventas y reportes en producción. Participé en desarrollo backend, arquitectura y despliegues.",
+      techs: ["Node.js", "React", "PostgreSQL", "AWS"],
     },
     {
       name: "Vokox",
       url: "https://vokox.app",
       description:
-        "Aplicación web orientada a servicios digitales, con arquitectura moderna y enfoque en experiencia de usuario. Integración de pagos y gestión de usuarios.",
+        "Aplicación web de servicios digitales en producción. Responsable de integraciones, experiencia de usuario y despliegue.",
       techs: ["Next.js", "TypeScript", "Tailwind", "APIs REST"],
     },
     {
       name: "Qusoft CRM",
       url: "https://tickety-flow.lovable.app",
       description:
-        "CRM para gestión de tickets y procesos internos. Enfoque en estructuración de flujos de trabajo, backend robusto y frontend intuitivo.",
+        "CRM para gestión de tickets y procesos internos. Desarrollo de flujos, backend y frontend integrado.",
       techs: ["React", "Node.js", "Prisma", "PostgreSQL"],
     },
   ];

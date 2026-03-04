@@ -1,34 +1,32 @@
 const About = () => {
+  const points = [
+    "Construyo soluciones que funcionan",
+    "+6 años en desarrollo web",
+    "Fuerte enfoque en backend (Node.js, TypeScript, APIs REST)",
+    "Experiencia sólida en frontend (React, Vue, Next)",
+    "Integraciones con AWS y servicios externos",
+    "Experiencia desarrollando soluciones para sector salud: gestión de citas, historias clínicas e integraciones con servicios externos",
+    "Trabajo coordinado con PM y equipos técnicos",
+    "Graduado en Ingeniería de Software",
+  ];
+
   return (
     <section id="about" className="py-24 px-6 lg:px-24">
       <div className="max-w-4xl">
         <p className="section-heading">Sobre mí</p>
         
         <h2 className="text-3xl lg:text-4xl font-bold mb-8">
-          Construyo soluciones que <span className="gradient-text">funcionan</span>
+          Perfil <span className="gradient-text">en un vistazo</span>
         </h2>
         
-        <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
-          <p>
-            Soy desarrollador de software con una fuerte motivación por el <span className="text-foreground">aprendizaje continuo</span> y 
-            la resolución de problemas reales. Mi camino en tecnología comenzó con una técnica en sistemas, 
-            seguida de un técnico en ADSI, un diplomado en desarrollo full stack, y actualmente estoy 
-            cursando el último semestre de Ingeniería de Software.
-          </p>
-          
-          <p>
-            Tengo experiencia tanto en <span className="text-foreground">frontend</span> (React, Vue) como en <span className="text-foreground">backend</span> (Node.js, Express, Prisma, Mongoose), 
-            lo que me permite abordar proyectos desde una visión integral. He desarrollado APIs REST 
-            y trabajado con diferentes ecosistemas y herramientas modernas.
-          </p>
-          
-          <p>
-            Me caracterizo por ser responsable, analítico y adaptable. Me involucro activamente 
-            en los proyectos, buscando no solo cumplir con los requerimientos, sino también 
-            <span className="text-foreground"> proponer mejoras técnicas</span> y optimizar procesos. 
-            Disfruto enfrentar nuevos retos en entornos donde el aprendizaje constante es parte del día a día.
-          </p>
-        </div>
+        <ul className="space-y-4 text-muted-foreground text-lg">
+          {points.map((point) => (
+            <li key={point} className="flex items-start gap-3">
+              <span className="text-primary mt-1.5 shrink-0">▸</span>
+              <span>{point}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

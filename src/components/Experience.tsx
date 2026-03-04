@@ -1,32 +1,44 @@
 const Experience = () => {
   const experiences = [
     {
-      role: "Desarrollador web Full-Stack",
+      role: "Desarrollador Full-Stack",
       company: "Freelance",
-      period: "marzo 2023 – presente",
-      description:
-        "Desarrollo e implementación de módulos clave para sistemas de salud. Responsable de despliegues en QA y Producción. Coordinación de reuniones técnicas para integraciones.",
+      period: "2023 – Presente",
+      bullets: [
+        "Desarrollo de módulos para sistemas de salud",
+        "Integraciones y despliegues en QA/Producción",
+        "Soporte y mejoras continuas",
+      ],
     },
     {
-      role: "Desarrollador web Full-Stack",
+      role: "Desarrollador Full-Stack",
       company: "Titan Soluciones S.A.S",
-      period: "junio 2021 – marzo 2024",
-      description:
-        "Desarrollo de aplicativos móviles para transporte y comercializadoras. Integración de APIs de facturación electrónica y nómina. Desarrollo de microservicios con Prisma ORM.",
+      period: "2021 – 2024",
+      bullets: [
+        "Aplicativos para transporte y comercializadoras",
+        "Integración de APIs (facturación electrónica, nómina)",
+        "Microservicios con Prisma ORM",
+      ],
     },
     {
-      role: "Desarrollador web Full-Stack",
+      role: "Desarrollador Full-Stack",
       company: "AYS Siged S.A.S",
-      period: "abril 2022 – marzo 2024",
-      description:
-        "Mantenimiento de plataforma existente. Microservicio de extracción de texto con AWS Textract, Node.js y Java. Implementación de AWS SES y S3.",
+      period: "2022 – 2024",
+      bullets: [
+        "Microservicio extracción de texto (AWS Textract, Node.js, Java)",
+        "AWS SES y S3 para plataforma documental",
+        "Mantenimiento y evolución de sistema en producción",
+      ],
     },
     {
       role: "Desarrollador de Software",
       company: "Sc Prosoft S.A.S",
-      period: "octubre 2017 – marzo 2022",
-      description:
-        "Transición de desarrollo COBOL a web. Colaboración en migraciones de módulos y elaboración de nuevas plataformas. Supervisión de migraciones técnicas.",
+      period: "2017 – 2022",
+      bullets: [
+        "Transición COBOL → desarrollo web",
+        "Migración de módulos legacy",
+        "Supervisión de procesos de migración",
+      ],
     },
   ];
 
@@ -40,7 +52,6 @@ const Experience = () => {
         </h2>
         
         <div className="relative">
-          {/* Timeline line */}
           <div className="absolute left-0 top-0 bottom-0 w-px bg-border hidden md:block" />
           
           <div className="space-y-8">
@@ -49,7 +60,6 @@ const Experience = () => {
                 key={index}
                 className="relative md:pl-8 group"
               >
-                {/* Timeline dot */}
                 <div className="absolute left-0 top-2 w-2 h-2 -translate-x-1/2 rounded-full bg-primary hidden md:block group-hover:scale-150 transition-transform" />
                 
                 <div className="p-6 rounded-lg border border-border bg-card">
@@ -61,10 +71,15 @@ const Experience = () => {
                       {exp.period}
                     </span>
                   </div>
-                  <p className="text-primary font-medium mb-3">{exp.company}</p>
-                  <p className="text-muted-foreground leading-relaxed">
-                    {exp.description}
-                  </p>
+                  <p className="text-primary font-medium mb-4">{exp.company}</p>
+                  <ul className="space-y-2 text-muted-foreground text-sm">
+                    {exp.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-2">
+                        <span className="text-primary shrink-0">•</span>
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}

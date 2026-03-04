@@ -39,8 +39,7 @@ const Contact = () => {
         </h2>
         
         <p className="text-lg text-muted-foreground mb-12 max-w-2xl">
-          Estoy abierto a nuevas oportunidades y proyectos interesantes. 
-          Si crees que puedo aportar valor a tu equipo o proyecto, no dudes en contactarme.
+          Disponible para nuevas oportunidades. Si crees que puedo aportar valor a tu equipo, contacta.
         </p>
         
         <div className="grid sm:grid-cols-2 gap-4 mb-12">
@@ -72,7 +71,7 @@ const Contact = () => {
           asChild
         >
           <a href="mailto:yeison9713@gmail.com">
-            Hablemos de tu proyecto
+            Hablemos de tu proyecto · Disponible para oportunidades
             <ArrowUpRight className="ml-2 h-4 w-4" />
           </a>
         </Button>

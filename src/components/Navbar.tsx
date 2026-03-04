@@ -11,6 +11,8 @@ const Navbar = () => {
     { label: "Stack", href: "#stack" },
     { label: "Proyectos", href: "#projects" },
     { label: "Experiencia", href: "#experience" },
+    { label: "Producción", href: "#production" },
+    { label: "Qué aporto", href: "#value" },
     { label: "Contacto", href: "#contact" },
   ];
 
