@@ -8,21 +8,21 @@ const Projects = () => {
       url: "https://www.movilcell.shop",
       description:
         "Sistema completo de inventario, ventas y reportes en producción. Participé en desarrollo backend, arquitectura y despliegues.",
-      techs: ["Node.js", "React", "PostgreSQL", "AWS"],
+      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript"],
     },
     {
-      name: "Vokox",
+      name: "Vokox (Proyecto personal)",
       url: "https://vokox.app",
       description:
-        "Aplicación web de servicios digitales en producción. Responsable de integraciones, experiencia de usuario y despliegue.",
-      techs: ["Next.js", "TypeScript", "Tailwind", "APIs REST"],
+        "Tienda online de productor de ropa urbana.",
+      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript"],
     },
     {
       name: "Qusoft CRM",
       url: "https://tickety-flow.lovable.app",
       description:
-        "CRM para gestión de tickets y procesos internos. Desarrollo de flujos, backend y frontend integrado.",
-      techs: ["React", "Node.js", "Prisma", "PostgreSQL"],
+        "CRM para gestión de solicitudes y procesos internos. Desarrollo de flujos conversacionales y bots con servicios en la nube.",
+      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript", "ManyChat"],
     },
   ];
 
@@ -30,11 +30,11 @@ const Projects = () => {
     <section id="projects" className="py-24 px-6 lg:px-24">
       <div className="max-w-4xl">
         <p className="section-heading">Proyectos destacados</p>
-        
+
         <h2 className="text-3xl lg:text-4xl font-bold mb-12">
           Trabajo en <span className="gradient-text">producción</span>
         </h2>
-        
+
         <div className="space-y-8">
           {projects.map((project, index) => (
             <a
@@ -55,11 +55,11 @@ const Projects = () => {
                   0{index + 1}
                 </span>
               </div>
-              
+
               <p className="text-muted-foreground mb-6 leading-relaxed">
                 {project.description}
               </p>
-              
+
               <div className="flex flex-wrap gap-2">
                 {project.techs.map((tech) => (
                   <Badge

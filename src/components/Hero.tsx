@@ -1,5 +1,15 @@
-import { ArrowDown, Mail, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Mail, Github, Linkedin, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
+import { CvDocument } from "@/components/CvDocument";
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const Hero = () => {
   return (
@@ -9,24 +19,24 @@ const Hero = () => {
     >
       <div className="max-w-4xl animate-slide-up">
         <p className="section-heading">Hola, soy</p>
-        
+
         <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-2">
           Yeisson Otalora
         </h1>
-        
+
         <p className="text-lg lg:text-xl text-primary font-medium mb-4">
           Backend-focused Full Stack Developer
         </p>
-        
+
         <p className="text-muted-foreground mb-2 max-w-2xl">
           Construyendo soluciones reales para negocio
         </p>
-        
+
         <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-          +6 años construyendo soluciones web escalables. Especializado en backend con Node.js y arquitecturas modernas. 
+          +6 años construyendo soluciones web escalables. Especializado en backend con Node.js y arquitecturas modernas.
           Experiencia real en producción, integraciones y despliegues.
         </p>
-        
+
         <div className="flex flex-wrap gap-4 mb-12">
           <Button
             variant="default"
@@ -37,17 +47,52 @@ const Hero = () => {
             Ver proyectos
             <ArrowDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
           </Button>
-          
-          <Button
+
+          {/* <Button
             variant="outline"
             size="lg"
-            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
           >
             <Mail className="mr-2 h-4 w-4" />
             Contactar
-          </Button>
+          </Button> */}
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="lg" className="gap-2">
+                <FileText className="h-4 w-4" />
+                Ver CV
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="max-w-7xl w-full">
+              <DialogHeader>
+                <DialogTitle>Currículum</DialogTitle>
+              </DialogHeader>
+              <div className="h-[70vh] border rounded-md overflow-hidden">
+                <PDFViewer width="100%" height="100%">
+                  <CvDocument />
+                </PDFViewer>
+              </div>
+              <DialogFooter className="mt-4">
+                <PDFDownloadLink
+                  document={<CvDocument />}
+                  fileName="Yeisson-Otalora-CV.pdf"
+                >
+                  {({ loading }) => (
+                    <Button className="gap-2" disabled={loading}>
+                      <FileText className="h-4 w-4" />
+                      {loading ? "Generando PDF..." : "Descargar PDF"}
+                    </Button>
+                  )}
+                </PDFDownloadLink>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
-        
+
         <div className="flex items-center gap-6">
           <a
             href="https://github.com/Yeison9713"
@@ -76,7 +121,7 @@ const Hero = () => {
           </a>
         </div>
       </div>
-      
+
       {/* Decorative gradient */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
     </section>

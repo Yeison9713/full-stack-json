@@ -1,6 +1,6 @@
 const About = () => {
   const points = [
-    "Construyo soluciones que funcionan",
+    // "Construyo soluciones que funcionan",
     "+6 años en desarrollo web",
     "Fuerte enfoque en backend (Node.js, TypeScript, APIs REST)",
     "Experiencia sólida en frontend (React, Vue, Next)",
@@ -22,7 +22,7 @@ const About = () => {
         <ul className="space-y-4 text-muted-foreground text-lg">
           {points.map((point) => (
             <li key={point} className="flex items-start gap-3">
-              <span className="text-primary mt-1.5 shrink-0">▸</span>
+              <span className="text-primary shrink-0">▸</span>
               <span>{point}</span>
             </li>
           ))}
