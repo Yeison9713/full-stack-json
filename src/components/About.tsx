@@ -2,12 +2,12 @@ const About = () => {
   const points = [
     // "Construyo soluciones que funcionan",
     "+6 años en desarrollo web",
+    "Graduado en Ingeniería de Software",
     "Fuerte enfoque en backend (Node.js, TypeScript, APIs REST)",
     "Experiencia sólida en frontend (React, Vue, Next)",
     "Integraciones con AWS y servicios externos",
     "Experiencia desarrollando soluciones para sector salud: gestión de citas, historias clínicas e integraciones con servicios externos",
     "Trabajo coordinado con PM y equipos técnicos",
-    "Graduado en Ingeniería de Software",
   ];
 
   return (

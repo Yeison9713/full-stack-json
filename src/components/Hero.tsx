@@ -25,7 +25,7 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg lg:text-xl text-primary font-medium mb-4">
-          Backend-focused Full Stack Developer
+          Ingeniero de Software · Full Stack Developer
         </p>
 
         <p className="text-muted-foreground mb-2 max-w-2xl">

@@ -7,11 +7,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     paddingBottom: 40,
     fontSize: 11,
-    fontFamily: "Times-Roman", // Georgia-like serif; podemos registrar Georgia si se añade la fuente
+    fontFamily: "Times-Roman",
   },
-  header: {
-    // marginBottom: 12,
-  },
+  header: {},
   name: {
     fontSize: 40,
     fontFamily: "Times-Bold",
@@ -36,7 +34,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     marginTop: 8,
     marginBottom: 8,
-    width: "100%", // toda la fila útil
+    width: "100%",
   },
   contactItem: {
     flexGrow: 1,
@@ -44,49 +42,56 @@ const styles = StyleSheet.create({
     color: "#000000",
   },
   section: {
-    marginTop: 18,
+    marginTop: 24,
   },
   sectionTitle: {
     fontSize: 14,
     fontFamily: "Times-Bold",
-    letterSpacing: 1,
     marginBottom: 8,
   },
   paragraph: {
-    marginBottom: 4,
-    lineHeight: 0.8,
-    // letterSpacing: 0.2,
+    marginBottom: 6,
+    lineHeight: 1,
   },
   expHeaderRow: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 2,
+    marginBottom: 3,
   },
   expRole: {
     fontFamily: "Times-Bold",
   },
   expMeta: {
     fontSize: 10,
+    marginBottom: 5,
   },
   bulletItem: {
     marginLeft: 12,
-    marginBottom: 2,
+    marginBottom: 3,
   },
   bulletText: {
     fontSize: 10,
+    lineHeight: 1.4,
+  },
+  sectionDivider: {
+    borderBottomWidth: 1,
+    borderBottomColor: "#000000",
+    width: 60,
+    marginTop: 10,
+    marginBottom: 10,
   },
   skillsColumns: {
     display: "flex",
     flexDirection: "row",
-    marginTop: 6,
+    marginTop: 4,
   },
   skillsColumn: {
     flexGrow: 1,
   },
   skillsColumnTitle: {
     fontFamily: "Times-Bold",
-    marginBottom: 4,
+    marginBottom: 5,
   },
 });
 
@@ -119,11 +124,14 @@ export const CvDocument: React.FC = () => (
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>SOBRE MI</Text>
         <Text style={styles.paragraph}>
-          Desarrollador de software con 6 años de experiencia en el desarrollo
-          web. Mi fuerte es el desarrollo BackEnd sin embargo, se me da bastante
-          bien el desarrollo FrontEnd. Mis mejores habilidades son la
-          iniciativa, la resolución de problemas, la comunicación y el
-          aprendizaje continuo.
+          Ingeniero de Software con más de 6 años de experiencia construyendo
+          soluciones web en producción. Especializado en backend con Node.js y
+          TypeScript, con experiencia sólida en frontend (React, Vue) e
+          integraciones cloud (AWS). He trabajado en sistemas para el
+          sector salud, el comercio y la logística, coordinando equipos técnicos
+          y siendo responsable de despliegues en producción. Incorporo
+          herramientas de IA como Cursor y Claude Code en mi flujo de trabajo
+          diario para desarrollar con mayor velocidad y calidad.
         </Text>
       </View>
 
@@ -165,7 +173,7 @@ export const CvDocument: React.FC = () => (
           </Text>
         </Text>
 
-        <View style={{ marginTop: 10 }}>
+        <View style={{ marginTop: 12 }}>
           <View style={styles.expHeaderRow}>
             <Text style={styles.expRole}>
               Desarrollador web Full-Stack, Freelance
@@ -189,19 +197,19 @@ export const CvDocument: React.FC = () => (
           </Text>
           <Text style={styles.bulletItem}>
             <Text style={styles.bulletText}>
-              • Integración de API de facturación electrónica, nomina
+              • Integración de API de facturación electrónica, nómina
               electrónica, entre otros documentos.
             </Text>
           </Text>
           <Text style={styles.bulletItem}>
             <Text style={styles.bulletText}>
-              • Añadido a la API se desarrollaron microservicios para el consumo
-              de información, usando ORM como Prisma.
+              • Desarrollo de microservicios para consumo de información usando
+              ORM Prisma.
             </Text>
           </Text>
         </View>
 
-        <View style={{ marginTop: 10 }}>
+        <View style={{ marginTop: 12 }}>
           <View style={styles.expHeaderRow}>
             <Text style={styles.expRole}>Desarrollador web Full-Stack</Text>
             <Text style={styles.expMeta}>abril 2022 – marzo 2024</Text>
@@ -209,149 +217,181 @@ export const CvDocument: React.FC = () => (
           <Text style={styles.expMeta}>AYS Siged S.A.S - 312 4094149</Text>
           <Text style={styles.bulletItem}>
             <Text style={styles.bulletText}>
-              • Mantenimiento de la plataforma ya existente, integración de
-              nuevas herramientas y microservicios.
+              • Mantenimiento de la plataforma existente e integración de nuevas
+              herramientas y microservicios.
             </Text>
           </Text>
           <Text style={styles.bulletItem}>
             <Text style={styles.bulletText}>
-              • Microservicio para extraer texto de documentos como PDF’s usando
-              AWS Textract, Node JS y JAVA.
+              • Microservicio de extracción de texto desde PDF usando AWS
+              Textract, Node.js y Java.
             </Text>
           </Text>
           <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>• Implementación AWS SES, S3.</Text>
+            <Text style={styles.bulletText}>
+              • Implementación de AWS SES y S3 para notificaciones y
+              almacenamiento de archivos.
+            </Text>
           </Text>
         </View>
 
-        <View style={{ marginTop: 10 }}>
+        <View style={{ marginTop: 12 }}>
           <View style={styles.expHeaderRow}>
             <Text style={styles.expRole}>Desarrollador de software</Text>
             <Text style={styles.expMeta}>
-              octubre 2017 – 31 de marzo 2022
+              octubre 2017 – marzo 2022
             </Text>
           </View>
           <Text style={styles.expMeta}>Sc Prosoft S.A.S - 300 4653314</Text>
           <Text style={styles.paragraph}>
-            Inicialmente fui desarrollador en cobol, y gradualmente fui pasando
-            al desarrollo web donde fui demostrando diferentes habilidades
-            individualmente y en grupo. Colabore con las migraciones de
-            diferentes módulos al entorno web y elaboración de nuevas
-            plataformas que funcionaban como extensiones. También tuve la
-            oportunidad de supervisar mucha de las migraciones que se llevaron a
-            cabo durante mi tiempo laboral en la empresa.
+            Inicié como desarrollador Cobol y migré progresivamente al desarrollo
+            web, demostrando capacidad de adaptación individual y en equipo.
+            Participé en la migración de módulos legacy al entorno web y en la
+            construcción de nuevas plataformas. Supervisé parte de las
+            migraciones realizadas durante mi estadía en la empresa.
           </Text>
         </View>
       </View>
 
       <View style={styles.section}>
+        {/* <View style={styles.sectionDivider} /> */}
         <Text style={styles.sectionTitle}>EDUCACIÓN</Text>
-        <Text style={styles.paragraph}>
-          Enero 2022 – presente{" "}
-          <Text style={{ fontFamily: "Times-Bold" }}>
-            Homologación de Ing. Software,
-          </Text>{" "}
-          Politécnico gran colombiano
-        </Text>
-        <Text style={styles.paragraph}>
-          Agosto 2019 – septiembre 2019{" "}
-          <Text style={{ fontFamily: "Times-Bold" }}>Diplomado Full-Stack,</Text>{" "}
-          Inandina
-        </Text>
-        <Text style={styles.paragraph}>
-          Septiembre 2015 – septiembre 2017{" "}
-          <Text style={{ fontFamily: "Times-Bold" }}>
-            Tecnólogo en análisis y desarrollo de sistemas de información,
-          </Text>{" "}
-          SENA
-        </Text>
+        <View style={{ marginBottom: 8 }}>
+          <Text style={styles.expMeta}>Enero 2022 – 2026</Text>
+          <Text>
+            <Text style={{ fontFamily: "Times-Bold" }}>Ingeniería de Software,</Text>
+            {" "}Politécnico Gran Colombiano
+          </Text>
+        </View>
+        <View style={{ marginBottom: 8 }}>
+          <Text style={styles.expMeta}>Agosto 2019 – septiembre 2019</Text>
+          <Text>
+            <Text style={{ fontFamily: "Times-Bold" }}>Diplomado Full-Stack,</Text>
+            {" "}Inandina
+          </Text>
+        </View>
+        <View style={{ marginBottom: 6 }}>
+          <Text style={styles.expMeta}>Septiembre 2015 – septiembre 2017</Text>
+          <Text>
+            <Text style={{ fontFamily: "Times-Bold" }}>Tecnólogo en análisis y desarrollo de sistemas de información,</Text>
+            {" "}SENA
+          </Text>
+        </View>
       </View>
 
       <View style={styles.section}>
+        {/* <View style={styles.sectionDivider} /> */}
         <Text style={styles.sectionTitle}>APTITUDES</Text>
         <View style={styles.skillsColumns}>
           <View style={styles.skillsColumn}>
             <Text style={styles.paragraph}>Iniciativa</Text>
             <Text style={styles.paragraph}>Resolución de problemas</Text>
+            <Text style={styles.paragraph}>Adaptabilidad</Text>
           </View>
           <View style={styles.skillsColumn}>
-            <Text style={styles.paragraph}>Comunicación</Text>
+            <Text style={styles.paragraph}>Comunicación efectiva</Text>
             <Text style={styles.paragraph}>Trabajo en equipo</Text>
+            <Text style={styles.paragraph}>Liderazgo técnico</Text>
           </View>
           <View style={styles.skillsColumn}>
             <Text style={styles.paragraph}>Organización</Text>
+            <Text style={styles.paragraph}>Aprendizaje continuo</Text>
+            <Text style={styles.paragraph}>Mentalidad de mejora</Text>
           </View>
         </View>
       </View>
 
       <View style={styles.section}>
+        {/* <View style={styles.sectionDivider} /> */}
         <Text style={styles.sectionTitle}>SKILLS</Text>
-        <View style={styles.skillsColumns}>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Backend</Text>
-            <Text style={styles.paragraph}>Cobol</Text>
-            <Text style={styles.paragraph}>Joi</Text>
-            <Text style={styles.paragraph}>TypeScript</Text>
-            <Text style={styles.paragraph}>Swagger</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Backend</Text>
-            <Text style={styles.paragraph}>Node Js(ts)</Text>
-            <Text style={styles.paragraph}>PostgreSQL</Text>
-            <Text style={styles.paragraph}>Jsonwebtoken</Text>
-            <Text style={styles.paragraph}>Python</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Backend</Text>
-            <Text style={styles.paragraph}>Express</Text>
-            <Text style={styles.paragraph}>Prisma</Text>
-            <Text style={styles.paragraph}>Scoket IO</Text>
-            <Text style={styles.paragraph}>Aws (SDK)</Text>
+
+        <View style={{ marginTop: 6 }}>
+          <Text style={styles.skillsColumnTitle}>Backend</Text>
+          <View style={styles.skillsColumns}>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Node.js (TS)</Text>
+              <Text style={styles.paragraph}>TypeScript</Text>
+              <Text style={styles.paragraph}>Express</Text>
+              <Text style={styles.paragraph}>Prisma</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>PostgreSQL</Text>
+              <Text style={styles.paragraph}>MongoDB</Text>
+              <Text style={styles.paragraph}>Socket.IO</Text>
+              <Text style={styles.paragraph}>JWT</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Python</Text>
+              <Text style={styles.paragraph}>Swagger</Text>
+              <Text style={styles.paragraph}>Microservicios</Text>
+              <Text style={styles.paragraph}>Cobol</Text>
+            </View>
           </View>
         </View>
 
-        <View style={styles.skillsColumns}>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Frontend</Text>
-            <Text style={styles.paragraph}>Vue(ts)</Text>
-            <Text style={styles.paragraph}>Redux</Text>
-            <Text style={styles.paragraph}>Tailwind</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Frontend</Text>
-            <Text style={styles.paragraph}>React(ts)</Text>
-            <Text style={styles.paragraph}>Nuxt</Text>
-            <Text style={styles.paragraph}>Yup</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Frontend</Text>
-            <Text style={styles.paragraph}>Vuex</Text>
-            <Text style={styles.paragraph}>Next 13</Text>
-            <Text style={styles.paragraph}>Formik</Text>
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.skillsColumnTitle}>Frontend</Text>
+          <View style={styles.skillsColumns}>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>React (TS)</Text>
+              <Text style={styles.paragraph}>Vue (TS)</Text>
+              <Text style={styles.paragraph}>Next.js</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Nuxt</Text>
+              <Text style={styles.paragraph}>Tailwind</Text>
+              <Text style={styles.paragraph}>Redux / Vuex</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Formik / Yup</Text>
+              <Text style={styles.paragraph}>React Hook Form</Text>
+              <Text style={styles.paragraph}>Zod</Text>
+            </View>
           </View>
         </View>
 
-        <View style={styles.skillsColumns}>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Herramientas</Text>
-            <Text style={styles.paragraph}>Git</Text>
-            <Text style={styles.paragraph}>VS Code</Text>
-            <Text style={styles.paragraph}>AWS</Text>
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.skillsColumnTitle}>Cloud & Integraciones</Text>
+          <View style={styles.skillsColumns}>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>AWS S3, SES</Text>
+              <Text style={styles.paragraph}>AWS Textract</Text>
+              <Text style={styles.paragraph}>AWS Connect</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Zendesk</Text>
+              <Text style={styles.paragraph}>ManyChat</Text>
+              <Text style={styles.paragraph}>ePayco</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>APIs REST</Text>
+              <Text style={styles.paragraph}>CI/CD</Text>
+              <Text style={styles.paragraph}>Docker</Text>
+            </View>
           </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Herramientas</Text>
-            <Text style={styles.paragraph}>NPM</Text>
-            <Text style={styles.paragraph}>Putty</Text>
-            <Text style={styles.paragraph}>Notion</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.skillsColumnTitle}>Herramientas</Text>
-            <Text style={styles.paragraph}>Postman</Text>
-            <Text style={styles.paragraph}>WinSCP</Text>
+        </View>
+
+        <View style={{ marginTop: 10 }}>
+          <Text style={styles.skillsColumnTitle}>IA & Herramientas</Text>
+          <View style={styles.skillsColumns}>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Cursor</Text>
+              <Text style={styles.paragraph}>Claude Code</Text>
+              <Text style={styles.paragraph}>AWS Q</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>Git</Text>
+              <Text style={styles.paragraph}>VS Code</Text>
+              <Text style={styles.paragraph}>Postman</Text>
+            </View>
+            <View style={styles.skillsColumn}>
+              <Text style={styles.paragraph}>NPM</Text>
+              <Text style={styles.paragraph}>Notion</Text>
+              <Text style={styles.paragraph}>WinSCP</Text>
+            </View>
           </View>
         </View>
       </View>
     </Page>
   </Document>
 );
-
