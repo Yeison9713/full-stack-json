@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Notas personales (no publicar)
+Yeisson_Otalora_*.md
+Perfil profesional atractivo.pdf
+github-profile-README.md
+*.docx

@@ -1,5 +1,8 @@
 import React from "react";
 import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
+import { experiences } from "@/components/Experience";
+import { projects } from "@/components/Projects";
+import { skillGroups } from "@/components/TechStack";
 
 const LINE = 1.35;
 
@@ -97,71 +100,6 @@ const contact = [
   { label: "linkedin.com/in/jsonotalora", href: "https://www.linkedin.com/in/jsonotalora" },
 ];
 
-const experience = [
-  {
-    role: "Desarrollador web Full Stack (Freelance)",
-    company: "Multisalud",
-    period: "Marzo 2023 – Actualidad",
-    bullets: [
-      "Desarrollo y evoluciono funcionalidades para una plataforma web del sector salud, participando en la construcción de interfaces, lógica de negocio y servicios backend.",
-      "Construyo soluciones para procesos de agendamiento, digiturno, administración de la plataforma, control de permisos y configuración de formularios dinámicos.",
-      "Desarrollo e integro APIs y servicios externos para conectar la plataforma con herramientas y dispositivos de terceros, incluyendo pasarelas de pago y torniquetes Hikvision.",
-      "Implemento flujos de comunicación y notificaciones mediante WhatsApp, llamadas telefónicas, SMS y correo electrónico, apoyados en webhooks y servicios de integración.",
-      "Analizo y optimizo consultas SQL, además de mejorar procesos internos para favorecer el rendimiento y la mantenibilidad de la aplicación.",
-      "Impulso mejoras en el flujo de desarrollo mediante revisión de código asistida por Claude Code y CodeRabbit, y apoyo la creación de agentes para pruebas automatizadas y unitarias.",
-      "Participo en la preparación y ejecución de despliegues en ambientes QA y producción, y brindo acompañamiento técnico al equipo de desarrollo.",
-    ],
-  },
-  {
-    role: "Desarrollador web Full Stack (Freelance)",
-    company: "Titan Soluciones S.A.S.",
-    period: "Junio 2021 – Marzo 2024",
-    bullets: [
-      "Desarrollé aplicaciones para digitalizar procesos de transporte intermunicipal y gestión de pedidos para empresas comercializadoras.",
-      "Integré servicios de facturación electrónica y nómina electrónica para conectar las aplicaciones con plataformas externas y facilitar procesos administrativos.",
-      "Construí microservicios para consultar, transformar y consumir información mediante Node.js y Prisma.",
-    ],
-  },
-  {
-    role: "Desarrollador web Full Stack",
-    company: "AYS Siged S.A.S.",
-    period: "Abril 2022 – Marzo 2024",
-    bullets: [
-      "Realicé mantenimiento y evolución de una plataforma existente, incorporando nuevas funcionalidades, herramientas y microservicios.",
-      "Desarrollé un servicio de extracción de texto desde documentos PDF utilizando AWS Textract, Node.js y Java.",
-      "Implementé servicios de AWS SES y S3 para gestionar el envío de notificaciones y el almacenamiento de archivos.",
-    ],
-  },
-  {
-    role: "Desarrollador de software",
-    company: "SC Prosoft S.A.S.",
-    period: "Octubre 2017 – Marzo 2022",
-    bullets: [
-      "Comencé mi trayectoria en desarrollo con COBOL y posteriormente asumí proyectos de desarrollo web, adaptándome a diferentes tecnologías y entornos.",
-      "Participé en la modernización de sistemas existentes mediante la migración de módulos legacy a plataformas web y apoyé la supervisión de estas migraciones.",
-    ],
-  },
-];
-
-const projects = [
-  {
-    name: "VOKOX",
-    kind: "Tienda online · marca de streetwear",
-    domain: "vokox.app",
-    url: "https://vokox.app",
-    description: "Proyecto web para una marca de streetwear: catálogo de productos y presencia digital de la marca.",
-    stack: "React · TypeScript · Tailwind CSS · Supabase · Vercel",
-  },
-  {
-    name: "Movilcell",
-    kind: "Desarrollo web para cliente",
-    domain: "movilcell.shop",
-    url: "https://www.movilcell.shop",
-    description: "Desarrollo web realizado para un tercero, enfocado en la presencia digital y oferta comercial de su negocio.",
-    stack: "React · TypeScript · Tailwind CSS · Supabase · Vercel",
-  },
-];
-
 const education = [
   ["Ingeniería de Software", "Politécnico Grancolombiano, 2026"],
   ["Diplomado Full Stack", "Inandina, 2019"],
@@ -173,15 +111,6 @@ const languages = [
   ["Inglés", "A2 (básico)"],
 ];
 
-const skills = [
-  ["Backend", "Node.js · TypeScript · Express · Prisma · APIs REST · Microservicios · Socket.IO · JWT"],
-  ["Frontend", "React · Next.js · Vue · Nuxt · Tailwind CSS · Redux · Vuex · Formik · Yup · React Hook Form · Zod"],
-  ["Bases de datos", "PostgreSQL · SQL · MongoDB"],
-  ["Cloud e infraestructura", "AWS S3 · SES · SQS · Connect · Textract · ECS/ECR · Lambda · Docker · CI/CD"],
-  ["Integraciones y calidad", "ePayco · Hikvision · Webhooks · Sentry · CodeRabbit · Postman · Swagger"],
-  ["Herramientas", "Git · Claude Code · Cursor · VS Code · NPM"],
-  ["Otros conocimientos", "COBOL · Python"],
-];
 
 const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
   <View style={styles.section}>
@@ -214,7 +143,7 @@ export const CvDocument: React.FC = () => (
       </View>
       <View>
         <Text style={styles.name}>Yeisson Otalora</Text>
-        <Text style={styles.title}>INGENIERO DE SOFTWARE | FULL STACK TYPESCRIPT DEVELOPER</Text>
+        <Text style={styles.title}>PROFESIONAL EN INGENIERÍA DE SOFTWARE | FULL STACK TYPESCRIPT DEVELOPER</Text>
         <View style={styles.rule} />
         <View style={styles.contact}>
           {contact.map((c) =>
@@ -245,8 +174,8 @@ export const CvDocument: React.FC = () => (
       </Section>
 
       <Section title="EXPERIENCIA PROFESIONAL">
-        {experience.map((exp, i) => (
-          <View key={exp.company} wrap={false} style={i ? styles.block : undefined}>
+        {experiences.map((exp, i) => (
+          <View key={exp.id} wrap={false} style={i ? styles.block : undefined}>
             <View style={styles.headerRow}>
               <Text>
                 <Text style={styles.bold}>{exp.role}</Text> — {exp.company}
@@ -255,9 +184,12 @@ export const CvDocument: React.FC = () => (
             </View>
             {exp.bullets.map((b) => (
               <Text key={b} style={[styles.bullet, styles.line]}>
-                • {b}
+                • {b}.
               </Text>
             ))}
+            {exp.stack && (
+              <Text style={[styles.bullet, styles.line, styles.meta]}>Stack: {exp.stack.join(" · ")}</Text>
+            )}
           </View>
         ))}
       </Section>
@@ -274,7 +206,7 @@ export const CvDocument: React.FC = () => (
               </Link>
             </View>
             <Text style={[styles.bullet, styles.line]}>{p.description}</Text>
-            <Text style={[styles.bullet, styles.line, styles.meta]}>Stack: {p.stack}</Text>
+            <Text style={[styles.bullet, styles.line, styles.meta]}>Stack: {p.techs.join(" · ")}</Text>
           </View>
         ))}
       </Section>
@@ -292,8 +224,8 @@ export const CvDocument: React.FC = () => (
       </Section>
 
       <Section title="COMPETENCIAS TÉCNICAS">
-        {skills.map(([label, items]) => (
-          <Labeled key={label} label={label} value={items} />
+        {skillGroups.map(({ title, items }) => (
+          <Labeled key={title} label={title} value={items.join(" · ")} />
         ))}
       </Section>
 

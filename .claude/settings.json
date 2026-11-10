@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "ClaudeInChromeDomain(localhost:8080)",
+      "Bash(unzip -p \"Yeisson Otalora.docx\" word/document.xml)",
+      "Bash(grep -v '^\\\\s*$')",
+      "Bash(gh repo *)",
+      "Bash(grep -v -E \"^\\\\s*\\(import|className|<div|</div|\\\\\\)|\\\\}|;|$\\)\")"
+    ]
+  }
+}
