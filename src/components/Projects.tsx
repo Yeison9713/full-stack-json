@@ -4,25 +4,18 @@ import { Badge } from "@/components/ui/badge";
 const Projects = () => {
   const projects = [
     {
-      name: "Movilcell BM",
-      url: "https://www.movilcell.shop",
-      description:
-        "Sistema completo de inventario, ventas y reportes en producción. Participé en desarrollo backend, arquitectura y despliegues.",
-      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript"],
-    },
-    {
-      name: "Vokox (Proyecto personal)",
+      name: "VOKOX",
       url: "https://vokox.app",
       description:
-        "Tienda online de productor de ropa urbana.",
+        "Tienda online para una marca de streetwear: catálogo de productos y presencia digital de la marca.",
       techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript"],
     },
     {
-      name: "Qusoft CRM",
-      url: "https://tickety-flow.lovable.app",
+      name: "Movilcell",
+      url: "https://www.movilcell.shop",
       description:
-        "CRM para gestión de solicitudes y procesos internos. Desarrollo de flujos conversacionales y bots con servicios en la nube.",
-      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript", "ManyChat"],
+        "Desarrollo web para un cliente, enfocado en la presencia digital y la oferta comercial de su negocio.",
+      techs: ["Supabase", "React", "Tailwind", "Vercel", "TypeScript"],
     },
   ];
 
@@ -32,7 +25,7 @@ const Projects = () => {
         <p className="section-heading">Proyectos destacados</p>
 
         <h2 className="text-3xl lg:text-4xl font-bold mb-12">
-          Trabajo en <span className="gradient-text">producción</span>
+          Proyectos <span className="gradient-text">web</span>
         </h2>
 
         <div className="space-y-8">

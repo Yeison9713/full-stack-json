@@ -1,397 +1,302 @@
 import React from "react";
 import { Document, Page, Text, View, StyleSheet, Link } from "@react-pdf/renderer";
 
+const LINE = 1.35;
+
 const styles = StyleSheet.create({
   page: {
     paddingTop: 40,
     paddingHorizontal: 50,
-    paddingBottom: 40,
-    fontSize: 11,
+    paddingBottom: 56,
+    fontSize: 10.5,
+    lineHeight: LINE,
     fontFamily: "Times-Roman",
   },
-  header: {},
   name: {
     fontSize: 40,
     fontFamily: "Times-Bold",
     letterSpacing: 7,
+    lineHeight: 1,
     marginBottom: 17,
   },
   title: {
-    fontSize: 14,
+    fontSize: 12.5,
+    letterSpacing: 1.2,
+    lineHeight: 1,
     marginBottom: 17,
-    letterSpacing: 1.5,
-    fontWeight: "bold",
   },
   rule: {
     borderBottomWidth: 1,
     borderBottomColor: "#000000",
   },
   contact: {
-    display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "center",
     fontSize: 10,
-    marginTop: 8,
-    marginBottom: 8,
-    width: "100%",
+    marginVertical: 8,
   },
   contactItem: {
     flexGrow: 1,
     textAlign: "center",
     color: "#000000",
+    textDecoration: "none",
   },
   section: {
-    marginTop: 24,
+    marginTop: 16,
   },
   sectionTitle: {
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: "Times-Bold",
+    lineHeight: 1,
     marginBottom: 8,
   },
-  paragraph: {
-    marginBottom: 6,
-    lineHeight: 1,
+  bold: {
+    fontFamily: "Times-Bold",
   },
-  expHeaderRow: {
-    display: "flex",
+  block: {
+    marginTop: 10,
+  },
+  headerRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 3,
+    marginBottom: 2,
   },
-  expRole: {
-    fontFamily: "Times-Bold",
-  },
-  expMeta: {
+  meta: {
     fontSize: 10,
-    marginBottom: 5,
   },
-  bulletItem: {
+  bullet: {
     marginLeft: 12,
-    marginBottom: 3,
   },
-  bulletText: {
+  line: {
+    marginBottom: 2,
+  },
+  link: {
     fontSize: 10,
-    lineHeight: 1.4,
+    color: "#000000",
+    textDecoration: "none",
   },
-  sectionDivider: {
-    borderBottomWidth: 1,
-    borderBottomColor: "#000000",
-    width: 60,
-    marginTop: 10,
-    marginBottom: 10,
-  },
-  skillsColumns: {
-    display: "flex",
+  footer: {
+    position: "absolute",
+    top: 800,
+    left: 50,
+    right: 50,
     flexDirection: "row",
-    marginTop: 4,
-  },
-  skillsColumn: {
-    flexGrow: 1,
-  },
-  skillsColumnTitle: {
-    fontFamily: "Times-Bold",
-    marginBottom: 5,
+    justifyContent: "space-between",
+    borderTopWidth: 0.5,
+    borderTopColor: "#999999",
+    paddingTop: 6,
+    fontSize: 9,
+    color: "#666666",
   },
 });
 
+const contact = [
+  { label: "+57 (300) 421-4948 – CO" },
+  { label: "yeison9713@gmail.com", href: "mailto:yeison9713@gmail.com" },
+  { label: "github.com/Yeison9713", href: "https://github.com/Yeison9713" },
+  { label: "linkedin.com/in/jsonotalora", href: "https://www.linkedin.com/in/jsonotalora" },
+];
+
+const experience = [
+  {
+    role: "Desarrollador web Full Stack (Freelance)",
+    company: "Multisalud",
+    period: "Marzo 2023 – Actualidad",
+    bullets: [
+      "Desarrollo y evoluciono funcionalidades para una plataforma web del sector salud, participando en la construcción de interfaces, lógica de negocio y servicios backend.",
+      "Construyo soluciones para procesos de agendamiento, digiturno, administración de la plataforma, control de permisos y configuración de formularios dinámicos.",
+      "Desarrollo e integro APIs y servicios externos para conectar la plataforma con herramientas y dispositivos de terceros, incluyendo pasarelas de pago y torniquetes Hikvision.",
+      "Implemento flujos de comunicación y notificaciones mediante WhatsApp, llamadas telefónicas, SMS y correo electrónico, apoyados en webhooks y servicios de integración.",
+      "Analizo y optimizo consultas SQL, además de mejorar procesos internos para favorecer el rendimiento y la mantenibilidad de la aplicación.",
+      "Impulso mejoras en el flujo de desarrollo mediante revisión de código asistida por Claude Code y CodeRabbit, y apoyo la creación de agentes para pruebas automatizadas y unitarias.",
+      "Participo en la preparación y ejecución de despliegues en ambientes QA y producción, y brindo acompañamiento técnico al equipo de desarrollo.",
+    ],
+  },
+  {
+    role: "Desarrollador web Full Stack (Freelance)",
+    company: "Titan Soluciones S.A.S.",
+    period: "Junio 2021 – Marzo 2024",
+    bullets: [
+      "Desarrollé aplicaciones para digitalizar procesos de transporte intermunicipal y gestión de pedidos para empresas comercializadoras.",
+      "Integré servicios de facturación electrónica y nómina electrónica para conectar las aplicaciones con plataformas externas y facilitar procesos administrativos.",
+      "Construí microservicios para consultar, transformar y consumir información mediante Node.js y Prisma.",
+    ],
+  },
+  {
+    role: "Desarrollador web Full Stack",
+    company: "AYS Siged S.A.S.",
+    period: "Abril 2022 – Marzo 2024",
+    bullets: [
+      "Realicé mantenimiento y evolución de una plataforma existente, incorporando nuevas funcionalidades, herramientas y microservicios.",
+      "Desarrollé un servicio de extracción de texto desde documentos PDF utilizando AWS Textract, Node.js y Java.",
+      "Implementé servicios de AWS SES y S3 para gestionar el envío de notificaciones y el almacenamiento de archivos.",
+    ],
+  },
+  {
+    role: "Desarrollador de software",
+    company: "SC Prosoft S.A.S.",
+    period: "Octubre 2017 – Marzo 2022",
+    bullets: [
+      "Comencé mi trayectoria en desarrollo con COBOL y posteriormente asumí proyectos de desarrollo web, adaptándome a diferentes tecnologías y entornos.",
+      "Participé en la modernización de sistemas existentes mediante la migración de módulos legacy a plataformas web y apoyé la supervisión de estas migraciones.",
+    ],
+  },
+];
+
+const projects = [
+  {
+    name: "VOKOX",
+    kind: "Tienda online · marca de streetwear",
+    domain: "vokox.app",
+    url: "https://vokox.app",
+    description: "Proyecto web para una marca de streetwear: catálogo de productos y presencia digital de la marca.",
+    stack: "React · TypeScript · Tailwind CSS · Supabase · Vercel",
+  },
+  {
+    name: "Movilcell",
+    kind: "Desarrollo web para cliente",
+    domain: "movilcell.shop",
+    url: "https://www.movilcell.shop",
+    description: "Desarrollo web realizado para un tercero, enfocado en la presencia digital y oferta comercial de su negocio.",
+    stack: "React · TypeScript · Tailwind CSS · Supabase · Vercel",
+  },
+];
+
+const education = [
+  ["Ingeniería de Software", "Politécnico Grancolombiano, 2026"],
+  ["Diplomado Full Stack", "Inandina, 2019"],
+  ["Tecnólogo en Análisis y Desarrollo de Sistemas de Información", "SENA, 2017"],
+];
+
+const languages = [
+  ["Español", "nativo"],
+  ["Inglés", "A2 (básico)"],
+];
+
+const skills = [
+  ["Backend", "Node.js · TypeScript · Express · Prisma · APIs REST · Microservicios · Socket.IO · JWT"],
+  ["Frontend", "React · Next.js · Vue · Nuxt · Tailwind CSS · Redux · Vuex · Formik · Yup · React Hook Form · Zod"],
+  ["Bases de datos", "PostgreSQL · SQL · MongoDB"],
+  ["Cloud e infraestructura", "AWS S3 · SES · SQS · Connect · Textract · ECS/ECR · Lambda · Docker · CI/CD"],
+  ["Integraciones y calidad", "ePayco · Hikvision · Webhooks · Sentry · CodeRabbit · Postman · Swagger"],
+  ["Herramientas", "Git · Claude Code · Cursor · VS Code · NPM"],
+  ["Otros conocimientos", "COBOL · Python"],
+];
+
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <View style={styles.section}>
+    <Text style={styles.sectionTitle} minPresenceAhead={40}>
+      {title}
+    </Text>
+    {children}
+  </View>
+);
+
+const Labeled: React.FC<{ label: string; value: string; sep?: string }> = ({ label, value, sep = ": " }) => (
+  <Text style={styles.line}>
+    <Text style={styles.bold}>{label}</Text>
+    {sep}
+    {value}
+  </Text>
+);
+
 export const CvDocument: React.FC = () => (
-  <Document>
+  <Document title="Yeisson Otalora - CV" author="Yeisson Otalora">
     <Page size="A4" style={styles.page}>
-      <View style={styles.header}>
+      <View style={styles.footer} fixed>
+        <Text>
+          Portafolio:{" "}
+          <Link style={{ color: "#666666", textDecoration: "none" }} src="https://yeison9713.github.io/full-stack-json/">
+            yeison9713.github.io/full-stack-json
+          </Link>
+        </Text>
+        <Text render={({ pageNumber, totalPages }) => `${pageNumber} / ${totalPages}`} />
+      </View>
+      <View>
         <Text style={styles.name}>Yeisson Otalora</Text>
-        <Text style={styles.title}>FULL-STACK WEB DEVELOPER</Text>
+        <Text style={styles.title}>INGENIERO DE SOFTWARE | FULL STACK TYPESCRIPT DEVELOPER</Text>
         <View style={styles.rule} />
         <View style={styles.contact}>
-          <Text style={styles.contactItem}>+57 (300) 421-4948 – CO</Text>
-          <Text style={styles.contactItem}>yeison9713@gmail.com</Text>
-          <Link
-            style={styles.contactItem}
-            src="https://github.com/Yeison9713"
-          >
-            github.com/Yeison9713
-          </Link>
-          <Link
-            style={styles.contactItem}
-            src="https://www.linkedin.com/in/jsonotalora"
-          >
-            linkedin.com/in/jsonotalora
-          </Link>
+          {contact.map((c) =>
+            c.href ? (
+              <Link key={c.label} style={styles.contactItem} src={c.href}>
+                {c.label}
+              </Link>
+            ) : (
+              <Text key={c.label} style={styles.contactItem}>
+                {c.label}
+              </Text>
+            ),
+          )}
         </View>
         <View style={styles.rule} />
       </View>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>SOBRE MI</Text>
-        <Text style={styles.paragraph}>
-          Ingeniero de Software con más de 6 años de experiencia construyendo
-          soluciones web en producción. Especializado en backend con Node.js y
-          TypeScript, con experiencia sólida en frontend (React, Vue) e
-          integraciones cloud (AWS). He trabajado en sistemas para el
-          sector salud, el comercio y la logística, coordinando equipos técnicos
-          y siendo responsable de despliegues en producción. Incorporo
-          herramientas de IA como Cursor y Claude Code en mi flujo de trabajo
-          diario para desarrollar con mayor velocidad y calidad.
+      <Section title="PERFIL PROFESIONAL">
+        <Text>
+          Me gusta construir productos web que resuelvan problemas reales: entender cómo
+          funciona el negocio, traducir sus necesidades en soluciones claras y llevarlas hasta
+          producción. Trabajo principalmente con TypeScript, tanto en backend con Node.js como en
+          frontend con React, Next.js y Vue. También disfruto conectar sistemas, diseñar APIs y
+          mejorar aplicaciones que ya están en funcionamiento. Mi experiencia en distintos
+          proyectos me ha permitido moverme entre desarrollo, integraciones y trabajo con
+          equipos, manteniendo el foco en crear software útil, mantenible y bien pensado.
         </Text>
-      </View>
+      </Section>
 
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>EXPERIENCIA LABORAL</Text>
-
-        <View style={styles.expHeaderRow}>
-          <Text style={styles.expRole}>
-            Desarrollador web Full-Stack, Freelance
-          </Text>
-          <Text style={styles.expMeta}>marzo 2023 – presente</Text>
-        </View>
-        <Text style={styles.expMeta}>Multi salud 311 8780580</Text>
-        <Text style={styles.bulletItem}>
-          <Text style={styles.bulletText}>
-            • Desarrollo e implementación de módulos clave: Agendamiento de
-            citas, Historias clínicas, Administrador, entre otros.
-          </Text>
-        </Text>
-        <Text style={styles.bulletItem}>
-          <Text style={styles.bulletText}>
-            • Implementación de subdominios y segmentación de datos por empresa.
-          </Text>
-        </Text>
-        <Text style={styles.bulletItem}>
-          <Text style={styles.bulletText}>
-            • Soporte técnico al equipo de desarrollo.
-          </Text>
-        </Text>
-        <Text style={styles.bulletItem}>
-          <Text style={styles.bulletText}>
-            • Responsable de despliegues en entornos QA y Producción.
-          </Text>
-        </Text>
-        <Text style={styles.bulletItem}>
-          <Text style={styles.bulletText}>
-            • Coordinación de reuniones técnicas para nuevas integraciones y
-            mejoras del sistema.
-          </Text>
-        </Text>
-
-        <View style={{ marginTop: 12 }}>
-          <View style={styles.expHeaderRow}>
-            <Text style={styles.expRole}>
-              Desarrollador web Full-Stack, Freelance
-            </Text>
-            <Text style={styles.expMeta}>junio 2021 – marzo 2024</Text>
+      <Section title="EXPERIENCIA PROFESIONAL">
+        {experience.map((exp, i) => (
+          <View key={exp.company} wrap={false} style={i ? styles.block : undefined}>
+            <View style={styles.headerRow}>
+              <Text>
+                <Text style={styles.bold}>{exp.role}</Text> — {exp.company}
+              </Text>
+              <Text style={styles.meta}>{exp.period}</Text>
+            </View>
+            {exp.bullets.map((b) => (
+              <Text key={b} style={[styles.bullet, styles.line]}>
+                • {b}
+              </Text>
+            ))}
           </View>
-          <Text style={styles.expMeta}>
-            Titan Soluciones S.A.S - 304 1689955
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Desarrollo de aplicativo móvil para registro de tiquetes de
-              transporte intermunicipal.
-            </Text>
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Desarrollo de aplicativo móvil para registro de pedidos de
-              comercializadoras.
-            </Text>
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Integración de API de facturación electrónica, nómina
-              electrónica, entre otros documentos.
-            </Text>
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Desarrollo de microservicios para consumo de información usando
-              ORM Prisma.
-            </Text>
-          </Text>
-        </View>
+        ))}
+      </Section>
 
-        <View style={{ marginTop: 12 }}>
-          <View style={styles.expHeaderRow}>
-            <Text style={styles.expRole}>Desarrollador web Full-Stack</Text>
-            <Text style={styles.expMeta}>abril 2022 – marzo 2024</Text>
+      <Section title="PROYECTOS DESTACADOS">
+        {projects.map((p, i) => (
+          <View key={p.name} wrap={false} style={i ? styles.block : undefined}>
+            <View style={styles.headerRow}>
+              <Text>
+                <Text style={styles.bold}>{p.name}</Text> — {p.kind}
+              </Text>
+              <Link style={styles.link} src={p.url}>
+                {p.domain}
+              </Link>
+            </View>
+            <Text style={[styles.bullet, styles.line]}>{p.description}</Text>
+            <Text style={[styles.bullet, styles.line, styles.meta]}>Stack: {p.stack}</Text>
           </View>
-          <Text style={styles.expMeta}>AYS Siged S.A.S - 312 4094149</Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Mantenimiento de la plataforma existente e integración de nuevas
-              herramientas y microservicios.
-            </Text>
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Microservicio de extracción de texto desde PDF usando AWS
-              Textract, Node.js y Java.
-            </Text>
-          </Text>
-          <Text style={styles.bulletItem}>
-            <Text style={styles.bulletText}>
-              • Implementación de AWS SES y S3 para notificaciones y
-              almacenamiento de archivos.
-            </Text>
-          </Text>
-        </View>
+        ))}
+      </Section>
 
-        <View style={{ marginTop: 12 }}>
-          <View style={styles.expHeaderRow}>
-            <Text style={styles.expRole}>Desarrollador de software</Text>
-            <Text style={styles.expMeta}>
-              octubre 2017 – marzo 2022
-            </Text>
-          </View>
-          <Text style={styles.expMeta}>Sc Prosoft S.A.S - 300 4653314</Text>
-          <Text style={styles.paragraph}>
-            Inicié como desarrollador Cobol y migré progresivamente al desarrollo
-            web, demostrando capacidad de adaptación individual y en equipo.
-            Participé en la migración de módulos legacy al entorno web y en la
-            construcción de nuevas plataformas. Supervisé parte de las
-            migraciones realizadas durante mi estadía en la empresa.
-          </Text>
-        </View>
-      </View>
+      <Section title="FORMACIÓN ACADÉMICA">
+        {education.map(([degree, place]) => (
+          <Labeled key={degree} label={degree} value={place} sep=" — " />
+        ))}
+      </Section>
 
-      <View style={styles.section}>
-        {/* <View style={styles.sectionDivider} /> */}
-        <Text style={styles.sectionTitle}>EDUCACIÓN</Text>
-        <View style={{ marginBottom: 8 }}>
-          <Text style={styles.expMeta}>Enero 2022 – 2026</Text>
-          <Text>
-            <Text style={{ fontFamily: "Times-Bold" }}>Ingeniería de Software,</Text>
-            {" "}Politécnico Gran Colombiano
-          </Text>
-        </View>
-        <View style={{ marginBottom: 8 }}>
-          <Text style={styles.expMeta}>Agosto 2019 – septiembre 2019</Text>
-          <Text>
-            <Text style={{ fontFamily: "Times-Bold" }}>Diplomado Full-Stack,</Text>
-            {" "}Inandina
-          </Text>
-        </View>
-        <View style={{ marginBottom: 6 }}>
-          <Text style={styles.expMeta}>Septiembre 2015 – septiembre 2017</Text>
-          <Text>
-            <Text style={{ fontFamily: "Times-Bold" }}>Tecnólogo en análisis y desarrollo de sistemas de información,</Text>
-            {" "}SENA
-          </Text>
-        </View>
-      </View>
+      <Section title="IDIOMAS">
+        {languages.map(([lang, level]) => (
+          <Labeled key={lang} label={lang} value={level} />
+        ))}
+      </Section>
 
-      <View style={styles.section}>
-        {/* <View style={styles.sectionDivider} /> */}
-        <Text style={styles.sectionTitle}>APTITUDES</Text>
-        <View style={styles.skillsColumns}>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.paragraph}>Iniciativa</Text>
-            <Text style={styles.paragraph}>Resolución de problemas</Text>
-            <Text style={styles.paragraph}>Adaptabilidad</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.paragraph}>Comunicación efectiva</Text>
-            <Text style={styles.paragraph}>Trabajo en equipo</Text>
-            <Text style={styles.paragraph}>Liderazgo técnico</Text>
-          </View>
-          <View style={styles.skillsColumn}>
-            <Text style={styles.paragraph}>Organización</Text>
-            <Text style={styles.paragraph}>Aprendizaje continuo</Text>
-            <Text style={styles.paragraph}>Mentalidad de mejora</Text>
-          </View>
-        </View>
-      </View>
+      <Section title="COMPETENCIAS TÉCNICAS">
+        {skills.map(([label, items]) => (
+          <Labeled key={label} label={label} value={items} />
+        ))}
+      </Section>
 
-      <View style={styles.section}>
-        {/* <View style={styles.sectionDivider} /> */}
-        <Text style={styles.sectionTitle}>SKILLS</Text>
-
-        <View style={{ marginTop: 6 }}>
-          <Text style={styles.skillsColumnTitle}>Backend</Text>
-          <View style={styles.skillsColumns}>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Node.js (TS)</Text>
-              <Text style={styles.paragraph}>TypeScript</Text>
-              <Text style={styles.paragraph}>Express</Text>
-              <Text style={styles.paragraph}>Prisma</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>PostgreSQL</Text>
-              <Text style={styles.paragraph}>MongoDB</Text>
-              <Text style={styles.paragraph}>Socket.IO</Text>
-              <Text style={styles.paragraph}>JWT</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Python</Text>
-              <Text style={styles.paragraph}>Swagger</Text>
-              <Text style={styles.paragraph}>Microservicios</Text>
-              <Text style={styles.paragraph}>Cobol</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.skillsColumnTitle}>Frontend</Text>
-          <View style={styles.skillsColumns}>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>React (TS)</Text>
-              <Text style={styles.paragraph}>Vue (TS)</Text>
-              <Text style={styles.paragraph}>Next.js</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Nuxt</Text>
-              <Text style={styles.paragraph}>Tailwind</Text>
-              <Text style={styles.paragraph}>Redux / Vuex</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Formik / Yup</Text>
-              <Text style={styles.paragraph}>React Hook Form</Text>
-              <Text style={styles.paragraph}>Zod</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.skillsColumnTitle}>Cloud & Integraciones</Text>
-          <View style={styles.skillsColumns}>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>AWS S3, SES</Text>
-              <Text style={styles.paragraph}>AWS Textract</Text>
-              <Text style={styles.paragraph}>AWS Connect</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Zendesk</Text>
-              <Text style={styles.paragraph}>ManyChat</Text>
-              <Text style={styles.paragraph}>ePayco</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>APIs REST</Text>
-              <Text style={styles.paragraph}>CI/CD</Text>
-              <Text style={styles.paragraph}>Docker</Text>
-            </View>
-          </View>
-        </View>
-
-        <View style={{ marginTop: 10 }}>
-          <Text style={styles.skillsColumnTitle}>IA & Herramientas</Text>
-          <View style={styles.skillsColumns}>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Cursor</Text>
-              <Text style={styles.paragraph}>Claude Code</Text>
-              <Text style={styles.paragraph}>AWS Q</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>Git</Text>
-              <Text style={styles.paragraph}>VS Code</Text>
-              <Text style={styles.paragraph}>Postman</Text>
-            </View>
-            <View style={styles.skillsColumn}>
-              <Text style={styles.paragraph}>NPM</Text>
-              <Text style={styles.paragraph}>Notion</Text>
-              <Text style={styles.paragraph}>WinSCP</Text>
-            </View>
-          </View>
-        </View>
-      </View>
     </Page>
   </Document>
 );

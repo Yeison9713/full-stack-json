@@ -25,16 +25,13 @@ const Hero = () => {
         </h1>
 
         <p className="text-lg lg:text-xl text-primary font-medium mb-4">
-          Ingeniero de Software · Full Stack Developer
-        </p>
-
-        <p className="text-muted-foreground mb-2 max-w-2xl">
-          Construyendo soluciones reales para negocio
+          Ingeniero de Software · Full Stack TypeScript Developer
         </p>
 
         <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mb-8 leading-relaxed">
-          +6 años construyendo soluciones web escalables. Especializado en backend con Node.js y arquitecturas modernas.
-          Experiencia real en producción, integraciones y despliegues.
+          Construyo aplicaciones web, APIs e integraciones con TypeScript. Me interesa entender
+          cómo funciona el negocio y convertir sus necesidades en soluciones útiles, mantenibles
+          y listas para producción.
         </p>
 
         <div className="flex flex-wrap gap-4 mb-12">

@@ -1,44 +1,47 @@
 const Experience = () => {
   const experiences = [
     {
-      role: "Desarrollador Full-Stack",
-      company: "Multisalud S.A.S",
-      period: "2023 – Presente",
+      role: "Desarrollador web Full Stack (Freelance)",
+      company: "Multisalud",
+      period: "Mar 2023 – Actualidad",
       bullets: [
-        "Desarrollo de módulos para sistemas de salud",
-        "Integraciones y despliegues en QA/Producción",
-        "Soporte y mejoras continuas",
-        "Coordinación de reuniones técnicas para nuevas integraciones y mejoras del sistema",
+        "Desarrollo y evoluciono funcionalidades para una plataforma web del sector salud: interfaces, lógica de negocio y servicios backend",
+        "Construyo soluciones de agendamiento de citas, digiturno, historias clínicas, superadministración, control de permisos y un diseñador de formularios dinámicos",
+        "Integro APIs y servicios externos: pasarela de pagos ePayco, torniquetes Hikvision y webhooks",
+        "Implemento notificaciones por WhatsApp, llamadas telefónicas, SMS y correo electrónico",
+        "Analizo y optimizo consultas SQL para mejorar el rendimiento y la mantenibilidad",
+        "Impulso revisión de código con Claude Code y CodeRabbit, y apoyo la creación de agentes para pruebas automatizadas y unitarias",
+        "Preparo despliegues en QA y producción, y brindo acompañamiento técnico al equipo",
       ],
     },
     {
-      role: "Desarrollador Full-Stack",
-      company: "Titan Soluciones S.A.S",
-      period: "2021 – 2024",
+      role: "Desarrollador web Full Stack (Freelance)",
+      company: "Titan Soluciones S.A.S.",
+      period: "Jun 2021 – Mar 2024",
       bullets: [
-        "Aplicativos para transporte y comercializadoras",
-        "Integración de APIs (facturación electrónica, nómina)",
-        "Microservicios con Prisma ORM",
+        "Desarrollé aplicaciones para digitalizar el registro de tiquetes de transporte intermunicipal y la gestión de pedidos de comercializadoras",
+        "Integré servicios de facturación electrónica y nómina electrónica con plataformas externas",
+        "Construí microservicios para consultar, transformar y consumir información con Node.js y Prisma",
       ],
     },
     {
-      role: "Desarrollador Full-Stack",
-      company: "AYS Siged S.A.S",
-      period: "2022 – 2024",
+      role: "Desarrollador web Full Stack",
+      company: "AYS Siged S.A.S.",
+      period: "Abr 2022 – Mar 2024",
       bullets: [
-        "Microservicio extracción de texto (AWS Textract, Node.js, Java)",
-        "AWS SES y S3 para plataforma documental",
-        "Mantenimiento y evolución de sistema en producción",
+        "Mantuve y evolucioné una plataforma existente, incorporando funcionalidades, herramientas y microservicios",
+        "Desarrollé un servicio de extracción de texto desde PDF con AWS Textract, Node.js y Java",
+        "Implementé AWS SES y S3 para notificaciones y almacenamiento de archivos",
       ],
     },
     {
-      role: "Desarrollador de Software",
-      company: "Sc Prosoft S.A.S",
-      period: "2017 – 2022",
+      role: "Desarrollador de software",
+      company: "SC Prosoft S.A.S.",
+      period: "Oct 2017 – Mar 2022",
       bullets: [
-        "Transición COBOL → desarrollo web",
-        "Migración de módulos legacy",
-        "Supervisión de procesos de migración",
+        "Comencé como desarrollador COBOL y luego asumí proyectos de desarrollo web",
+        "Participé en la migración de módulos legacy a plataformas web y en la construcción de nuevas plataformas",
+        "Apoyé la supervisión de parte de esas migraciones",
       ],
     },
   ];
@@ -49,16 +52,16 @@ const Experience = () => {
         <p className="section-heading">Experiencia profesional</p>
 
         <h2 className="text-3xl lg:text-4xl font-bold mb-12">
-          Trayectoria de <span className="gradient-text">+6 años</span>
+          Trayectoria <span className="gradient-text">profesional</span>
         </h2>
 
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-px bg-border hidden md:block" />
 
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <div
-                key={index}
+                key={exp.company}
                 className="relative md:pl-8 group"
               >
                 <div className="absolute left-0 top-2 w-2 h-2 -translate-x-1/2 rounded-full bg-primary hidden md:block group-hover:scale-150 transition-transform" />

@@ -1,46 +1,48 @@
-import { Code2, MessageSquare, Server, Layers, Cpu, Heart } from "lucide-react";
+import { Briefcase, MessageSquare, Layers, Plug, Wrench, Rocket } from "lucide-react";
 
 const ValueProposition = () => {
   const points = [
     {
-      icon: Code2,
-      title: "Código mantenible y bien estructurado",
+      icon: Briefcase,
+      title: "Entender el negocio",
+      text: "Antes de escribir código, busco entender cómo funciona el proceso y qué problema hay que resolver.",
     },
     {
       icon: MessageSquare,
-      title: "Comunicación clara con equipos técnicos y funcionales",
-    },
-    {
-      icon: Server,
-      title: "Experiencia real en entornos productivos",
+      title: "Traducir necesidades",
+      text: "Convierto requerimientos en soluciones claras y trabajo de cerca con equipos técnicos y funcionales.",
     },
     {
       icon: Layers,
-      title: "Enfoque en soluciones escalables",
+      title: "Frontend y backend",
+      text: "Construyo interfaces con React, Next.js o Vue y servicios con Node.js, TypeScript y PostgreSQL.",
     },
     {
-      icon: Cpu,
-      title: "Arquitectura y lógica compleja: validaciones dinámicas (Yup), condiciones anidadas, SQL complejo, Prisma, transacciones",
+      icon: Plug,
+      title: "Conectar sistemas",
+      text: "Diseño APIs e integro servicios externos: pagos, dispositivos, notificaciones y webhooks.",
     },
     {
-      icon: Heart,
-      title: "Experiencia en sistemas de salud: EPS, facturación electrónica, historias clínicas, agendamiento médico, confirmación de citas con AWS Connect",
+      icon: Wrench,
+      title: "Mejorar lo existente",
+      text: "Evoluciono aplicaciones en funcionamiento: optimización SQL, nuevas funcionalidades y mantenibilidad.",
+    },
+    {
+      icon: Rocket,
+      title: "Llevar a producción",
+      text: "Revisión de código, pruebas y despliegues en QA y producción como parte del trabajo diario.",
     },
   ];
 
   return (
     <section id="value" className="py-24 px-6 lg:px-24 bg-card/50">
       <div className="max-w-4xl">
-        <p className="section-heading">Qué puedo aportar</p>
-        
-        <h2 className="text-3xl lg:text-4xl font-bold mb-6">
-          ¿Qué puedes esperar al trabajar conmigo?
+        <p className="section-heading">Cómo trabajo</p>
+
+        <h2 className="text-3xl lg:text-4xl font-bold mb-12">
+          De la necesidad <span className="gradient-text">a producción</span>
         </h2>
-        
-        <p className="text-muted-foreground mb-12 max-w-2xl">
-          Perfil semi-senior: backend fuerte, full stack sólido, experiencia en producción, integraciones complejas, uso práctico de IA en desarrollo, pasarelas de pago y AWS más allá de lo básico.
-        </p>
-        
+
         <div className="grid sm:grid-cols-2 gap-4">
           {points.map((item) => (
             <div
@@ -50,7 +52,10 @@ const ValueProposition = () => {
               <div className="p-2.5 rounded-lg bg-primary/10 shrink-0">
                 <item.icon className="h-5 w-5 text-primary" />
               </div>
-              <p className="text-foreground font-medium pt-1 text-sm">{item.title}</p>
+              <div>
+                <p className="text-foreground font-medium mb-1">{item.title}</p>
+                <p className="text-sm text-muted-foreground">{item.text}</p>
+              </div>
             </div>
           ))}
         </div>
