@@ -75,7 +75,7 @@ const CareerTimeline = () => {
 
       <figcaption className="mt-6 max-w-xl font-serif text-muted-foreground leading-relaxed">
         Empecé en 2017 con COBOL y migraciones de sistemas legacy. Hoy construyo plataformas web,
-        APIs e integraciones que corren en producción.
+        APIs e integraciones.
       </figcaption>
     </figure>
   );
